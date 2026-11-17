@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta
+      name="description"
+      content="Learn to read and write chess notation with friendly lessons, an interactive board, and quick practice."
+    />
+    <title>Chess Notes — Learn to read the game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Chess Notes home">
+          <span class="brand-mark" aria-hidden="true">♞</span>
+          <span>chess<span class="brand-light">notes</span></span>
+        </a>
+
+        <p class="nav-label">YOUR CLASSROOM</p>
+        <nav class="primary-nav">
+          <button class="nav-item active" type="button" data-view="learn" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span>Learn</span>
+            <span class="nav-count">01</span>
+          </button>
+          <button class="nav-item" type="button" data-view="practice">
+            <span class="nav-icon" aria-hidden="true">✳</span>
+            <span>Practice</span>
+          </button>
+          <a class="nav-item" href="#quick-guide">
+            <span class="nav-icon book-icon" aria-hidden="true">⌑</span>
+            <span>Quick guide</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-course">
+          <div class="course-topline">
+            <span class="course-dot"></span>
+            <span>YOUR FIRST COURSE</span>
+          </div>
+          <p>Algebraic notation</p>
+          <div class="sidebar-progress"><span id="sidebar-progress-fill"></span></div>
+          <span class="course-progress-copy" id="sidebar-progress-copy">Step 1 of 4</span>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="streak-card">
+            <span class="streak-icon" aria-hidden="true">✦</span>
+            <div><strong>Small steps add up.</strong><span>You're right on track.</span></div>
+          </div>
+          <div class="sidebar-note">Made for curious minds.<br />One move at a time.</div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>YOUR CLASSROOM</span><span class="crumb-slash">/</span><strong id="breadcrumb-current">Learn</strong></div>
+          <div class="topbar-right">
+            <span class="today-label"><span class="today-dot"></span> A GOOD DAY TO LEARN</span>
+            <div class="avatar" aria-label="Your profile">♙</div>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> THE LANGUAGE OF CHESS</p>
+              <h1>Read the game.<br /><em>Move by move.</em></h1>
+              <p class="welcome-copy">Every brilliant game has a story. Learn to read it, one little symbol at a time.</p>
+            </div>
+            <div class="lesson-stamp" aria-label="Beginner friendly">
+              <span class="stamp-star">✳</span>
+              <span>BEGINNER<br />FRIENDLY</span>
+            </div>
+          </section>
+
+          <section class="lesson-section" aria-labelledby="lesson-title">
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker">YOUR FIRST COURSE <span>·</span> LESSON 01</p>
+                <h2 id="lesson-title">Algebraic notation</h2>
+              </div>
+              <div class="lesson-meta"><span class="meta-clock" aria-hidden="true">◷</span> 5 MIN <span class="meta-divider">·</span> <span id="step-counter">01 / 04</span></div>
+            </div>
+
+            <div class="lesson-card" id="learn-view">
+              <div class="board-column">
+                <div class="board-heading">
+                  <span><span class="live-dot"></span> THE BOARD</span>
+                  <button class="board-reset" type="button" id="reset-board" aria-label="Reset board to the beginning">↺ <span>Reset</span></button>
+                </div>
+                <div class="board-frame">
+                  <div class="chessboard" id="chessboard" role="img" aria-label="Chessboard showing the starting position"></div>
+                </div>
+                <div class="board-caption"><span class="caption-icon">↗</span> Follow along as the notation comes to life.</div>
+              </div>
+
+              <div class="lesson-copy">
+                <div class="step-tag"><span id="step-number">01</span><span class="step-tag-line"></span><span>THE VERY FIRST STEP</span></div>
+                <h3 id="step-title">Every square<br />has a name.</h3>
+                <p class="lesson-description" id="step-description">Think of the board like a tiny map. Each square has its own address, made from a letter and a number.</p>
+                <div class="notation-example">
+                  <div class="notation-example-label">ON THE BOARD</div>
+                  <div class="notation-example-row">
+                    <span class="notation-square" id="notation-example">e4</span>
+                    <span class="notation-arrow">←</span>
+                    <span class="notation-explanation" id="notation-explanation">File <strong>e</strong>, rank <strong>4</strong></span>
+                  </div>
+                </div>
+                <div class="lesson-tip"><span aria-hidden="true">✦</span><p id="lesson-tip">Files run up and down. Ranks run side to side. Together, they name every square.</p></div>
+                <div class="lesson-controls">
+                  <button class="button button-quiet" id="previous-step" type="button" disabled><span aria-hidden="true">←</span> Back</button>
+                  <button class="button button-primary" id="next-step" type="button">Got it, next <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="practice-view is-hidden" id="practice-view" aria-labelledby="practice-title">
+            <div class="practice-card">
+              <div class="practice-intro">
+                <span class="practice-icon" aria-hidden="true">✳</span>
+                <p class="section-kicker">A LITTLE PRACTICE</p>
+                <h2 id="practice-title">Can you read<br />this move?</h2>
+                <p>Take your time. There’s no clock here—just you and the board.</p>
+                <div class="practice-progress"><span id="quiz-progress-fill"></span></div>
+                <span class="practice-progress-label" id="quiz-progress-label">QUESTION 1 OF 4</span>
+              </div>
+              <div class="quiz-content" id="quiz-content"></div>
+            </div>
+          </section>
+
+          <section class="quick-guide" id="quick-guide" aria-labelledby="guide-title">
+            <div class="guide-heading">
+              <div><p class="section-kicker">A HANDY LITTLE CHEAT SHEET</p><h2 id="guide-title">Your notation pocket guide</h2></div>
+              <button class="text-link" type="button" id="practice-link">Try a quick quiz <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="guide-grid">
+              <article class="guide-card">
+                <span class="guide-number">01</span>
+                <span class="guide-symbol pawn-symbol" aria-hidden="true">♟</span>
+                <h3>Pawn moves</h3>
+                <p>Pawns don't need a letter. Just write the square they land on.</p>
+                <span class="guide-example">e4 <span>→ pawn to e4</span></span>
+              </article>
+              <article class="guide-card">
+                <span class="guide-number">02</span>
+                <span class="guide-symbol" aria-hidden="true">♘</span>
+                <h3>Piece moves</h3>
+                <p>Add the piece's capital letter before its destination square.</p>
+                <span class="guide-example">Nf3 <span>→ knight to f3</span></span>
+              </article>
+              <article class="guide-card">
+                <span class="guide-number">03</span>
+                <span class="guide-symbol capture-symbol" aria-hidden="true">×</span>
+                <h3>Captures &amp; check</h3>
+                <p>An x means a capture. A + at the end means the king is in check.</p>
+                <span class="guide-example">Bxc6+ <span>→ bishop takes, check</span></span>
+              </article>
+            </div>
+            <div class="notation-footnote"><span aria-hidden="true">♙</span> The king is <strong>K</strong>. The knight is <strong>N</strong>—because <strong>K</strong> already belongs to the king.</div>
+          </section>
+
+          <footer class="page-footer"><span>CHESS NOTES</span><span>Good games start with good questions. <span class="footer-star">✳</span></span></footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
